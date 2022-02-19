@@ -3,6 +3,8 @@ import styled from "styled-components";
 import Homepage from './components/Homepage';
 import Navbar from './components/Navbar';
 import Login from './components/Login';
+import Register from './components/Register';
+
 import Journal from './components/Journal';
 // import { Route, Link } from './components/Route';
 import * as ReactDOM from "react-dom";
@@ -20,6 +22,7 @@ export default function App() {
         {/* <Homepage /> */}
         <Route exact path="journal" element={<Journal />}/>
         <Route exact path="login" element={<Login />} />
+        <Route exact path="register" element={<Register />} />
         </Routes>
 
     </div>

@@ -12,7 +12,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Routes, Route, Link } from "react-router-dom";
-
+import {auth} from "./firebase-config";
 
 
 const pages = ['Journal', 'Blog'];
