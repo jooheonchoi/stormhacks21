@@ -13,11 +13,11 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Routes, Route, Link } from "react-router-dom";
 import {auth} from "./firebase-config";
-import { onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
 
 
 const pages = ['Journal', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = ['Profile', 'Logout'];
 
 const linkStyle = {
   margin: "1.5rem",
@@ -34,7 +34,9 @@ const Navbar = () => {
     setUser(currentUser);
 })
 
-
+const logout = async () => {
+  await signOut(auth);
+}
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -152,9 +154,13 @@ const Navbar = () => {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
+                setting=="Logout" ?<>
+                <MenuItem key={setting} onClick={logout}>
+                  <Typography textAlign="center">{setting}</Typography>
+                </MenuItem>
+                </>:
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center"><Link to={`/${setting}`}>{setting}</Link></Typography>
-
                 </MenuItem>
               ))}
             </Menu>
