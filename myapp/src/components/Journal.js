@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './Journal.css';
 
-function Journal() {
-	const [playing, setPlaying] = useState(false);
+function Journal({isListening}) {
+	const [playing, setPlaying] = useState(isListening);
 
 	const HEIGHT = 300;
 	const WIDTH = 300;

@@ -107,7 +107,7 @@ function Audio() {
           <button onClick={() => setIsListening((prevState) => !prevState)}>
             Start/Stop
           </button>
-          <Journal/>
+          <Journal isListening={isListening}/>
           <p>{note}</p>
         </div>
         <div className="box">
