@@ -13,6 +13,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Routes, Route, Link } from "react-router-dom";
 import {auth} from "./firebase-config";
+import { onAuthStateChanged } from 'firebase/auth';
 
 
 const pages = ['Journal', 'Blog'];
@@ -21,7 +22,13 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const [user, setUser] = React.useState(null);
+  const [user, setUser] = React.useState({});
+  onAuthStateChanged(auth, (currentUser) => {
+    setUser(currentUser);
+})
+
+
+
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -107,7 +114,7 @@ const Navbar = () => {
                 onClick={(e)=>console.log(page)}
                 sx={{ my: 2, color: 'white', display: 'block', backgroundColor: '' }}
               >
-                {page}
+            <Link to={`/${page}`}>{page}</Link>
               </Button>
             ))}
           </Box>
@@ -139,7 +146,8 @@ const Navbar = () => {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                  <Typography textAlign="center"><Link to={`/${setting}`}>{setting}</Link></Typography>
+
                 </MenuItem>
               ))}
             </Menu>

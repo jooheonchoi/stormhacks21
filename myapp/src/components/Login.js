@@ -2,19 +2,34 @@ import React, { useState } from 'react'
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { Button } from '@mui/material';
+import {auth} from './firebase-config';
+import { signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
 
 const Login = () => {
-    const [registerEmail, setRegisterEmail] = useState("");
-    const [registerPassword, setRegisterPassword] = useState("");
+    // const [registerEmail, setRegisterEmail] = useState("");
+    // const [registerPassword, setRegisterPassword] = useState("");
     const [loginEmail, setLoginEmail] = useState("");
     const [loginPassword, setLoginPassword] = useState("");
-
+    const[user, setUser] = useState({});
+    onAuthStateChanged(auth, (currentUser) => {
+        setUser(currentUser);
+    })
     const register = async () => {
 
     }
 
     const login = async () => {
+        try {
+            const user = await signInWithEmailAndPassword(
+                auth, 
+                loginEmail,
+                loginPassword
+            );
+            console.log(user);
+        } catch (error) {
+            console.log(error.message);
 
+        }
     }
 
     const logout = async () => {
@@ -49,7 +64,9 @@ const Login = () => {
                     setLoginPassword(e.target.value);
                 }}
                 sx={{}} id="password" label="Password" variant="outlined" />
-            <Button variant="contained" >Submit</Button>
+            <Button variant="contained" onClick={login} >Submit</Button>
+            <h4>Loggedin user</h4>
+            {user?.email}
         </Box>
     )
 }

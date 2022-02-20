@@ -4,8 +4,8 @@ import './Journal.css';
 function Journal() {
 	const [playing, setPlaying] = useState(false);
 
-	const HEIGHT = 500;
-	const WIDTH = 500;
+	const HEIGHT = 300;
+	const WIDTH = 300;
 
 	const startVideo = () => {
 		setPlaying(true);

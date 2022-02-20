@@ -4,6 +4,7 @@ import Homepage from './components/Homepage';
 import Navbar from './components/Navbar';
 import Login from './components/Login';
 import Register from './components/Register';
+import Audio from './components/Audio';
 
 import Journal from './components/Journal';
 // import { Route, Link } from './components/Route';
@@ -22,6 +23,7 @@ export default function App() {
         <Route exact path="journal" element={<Journal />}/>
         <Route exact path="login" element={<Login />} />
         <Route exact path="register" element={<Register />} />
+        <Route exact path="audio" element={<Audio />} />
         </Routes>
     </div>
   );

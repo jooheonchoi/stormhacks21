@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { Button } from '@mui/material';
-import { createUserWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
+import { createUserWithEmailAndPassword, onAuthStateChanged, signOut } from 'firebase/auth';
 import {auth} from './firebase-config';
 const Register = () => {
     const [registerEmail, setRegisterEmail] = useState("");
@@ -29,11 +29,12 @@ const Register = () => {
     }
 
     const login = async () => {
+        
 
     }
 
     const logout = async () => {
-
+        await signOut(auth);
     }
 
 
@@ -67,7 +68,8 @@ const Register = () => {
             <Button onClick={register} variant="contained" >Submit</Button>
 
             <h4>Registered user</h4>
-            {user.email}
+            {user?.email}
+            <Button onClick={logout} variant="outlined" >Logout</Button>
         </Box>
     )
 }
