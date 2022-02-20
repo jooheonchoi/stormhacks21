@@ -135,11 +135,12 @@ function Audio() {
 
   return (
     <div className="general">
-      <h1>Voice Notes</h1>
+      <h2 className="titleVideo"> Video Journal Log </h2>
+            <p className="subTitleVideo">A place of no judgement and where all emotion are accepted</p>
       <div className="container">
         <div className="box">
           <h2>Current Note</h2>
-          {isListening ? <span>🎙️</span> : <span>🛑🎙️</span>}
+          {isListening ? <span>🎙️ Recording... </span> : <span>🛑🎙️ Recording has stopped</span>}
           <button onClick={handleSaveNote} disabled={!note}>
             Save Note
           </button>
@@ -159,9 +160,7 @@ function Audio() {
 
           {/* journal */}
           <div className="app">
-            <h2 className="titleVideo"> Video Journal Log </h2>
-            <p className="subTitleVideo">A place of no judgement and where all emotion are accepted</p>
-
+            
             <div className="app__container">
               <video
                 height={HEIGHT}

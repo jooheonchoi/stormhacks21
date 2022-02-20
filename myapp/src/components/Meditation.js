@@ -7,7 +7,7 @@ import beachSound from './music/beach.mp3'
 
 function Meditation(){
 
-    let rain = new Audio('/music/rain.mp3');
+    let rain = new Audio(rainSound);
 
     const playRainSound = () => {
         console.log("in FUNCTION rain");
@@ -78,8 +78,8 @@ function Meditation(){
                     {/* <button data-sound="./songs/rain.mp3" data-video="./video/rain.mp4"><img src="./png/rain.png">RAIN</button> */}
 
                     <button onClick={playRainSound} ><img src={'https://anwesharoses.github.io/Lighthouse/secondpage/meditat/png/rain.png'} />RAIN</button>
-                    {/* <button onClick={playSound(nature)} data-sound="./music/nature.mp3" data-video="./video/nature.mp4"><img src={'https://anwesharoses.github.io/Lighthouse/secondpage/meditat/png/forest.png'}></img>NATURE</button>
-                    <button onClick={playSound(beach)} data-sound="./music/beach.mp3" data-video="./video/beach.mp4"><img src={'https://anwesharoses.github.io/Lighthouse/secondpage/meditat/png/beach.png'} />BEACH</button> */}
+                    <button onClick={playNatureSound} data-sound="./music/nature.mp3" data-video="./video/nature.mp4"><img src={'https://anwesharoses.github.io/Lighthouse/secondpage/meditat/png/forest.png'}></img>NATURE</button>
+                    <button onClick={playBeachSound} data-sound="./music/beach.mp3" data-video="./video/beach.mp4"><img src={'https://anwesharoses.github.io/Lighthouse/secondpage/meditat/png/beach.png'} />BEACH</button>
                 </div>
             </div>
         </>
