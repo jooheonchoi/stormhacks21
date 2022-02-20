@@ -19,12 +19,10 @@ export default function App() {
       <Routes>
     
       <Route path="/" element={<Homepage />} />
-        {/* <Homepage /> */}
         <Route exact path="journal" element={<Journal />}/>
         <Route exact path="login" element={<Login />} />
         <Route exact path="register" element={<Register />} />
         </Routes>
-
     </div>
   );
 }
