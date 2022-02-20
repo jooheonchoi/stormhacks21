@@ -45,14 +45,14 @@
     border: none;
 }
 .replay{
-    
+
 }
 .time-display{
    position:absolute;
    top: 75%;
    font-size: 40px;
 }
-.time-select{
+/* .time-select{
     background-color: lightblue;
 }
 
@@ -61,7 +61,7 @@
 }
 .player-container{
     background-color: aquamarine;
-}
+} */
 #back-button{
 height: 40px;
 width: 180px;

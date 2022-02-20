@@ -1,5 +1,6 @@
 import React from "react";
 import './Meditation.css';
+import backAnimation from './video/rain.mp4'
 
 function Meditation(){
 
@@ -9,9 +10,9 @@ function Meditation(){
             <div className="med">
 
                 <div className="vid-container" >
-                    {/* <video loop>
-                        <source src="./video/rain.mp4 " type="video/mp4" />
-                    </video> */}
+                    <video autoPlay loop muted>
+                        <source src={backAnimation} type="video/mp4" />
+                    </video>
                 </div>
 
                 <div className="time-select">
@@ -40,9 +41,11 @@ function Meditation(){
 
                 </div>
                 <div className="sound-picker">
-                    {/* <button data-sound="./songs/rain.mp3" data-video="./video/rain.mp4"><img src="./png/rain.png">RAIN</button>
-                    <button data-sound="./songs/forest.mp3" data-video="./video/forest.mp4"><img src="./png/forest.png"></i>FOREST</button>
-                    <button data-sound="./songs/beach.mp3" data-video="./video/beach.mp4"><img src="./png/beach.png"></i>BEACH</button> */}
+                    {/* <button data-sound="./songs/rain.mp3" data-video="./video/rain.mp4"><img src="./png/rain.png">RAIN</button> */}
+
+                    <button ><img src={'https://anwesharoses.github.io/Lighthouse/secondpage/meditat/png/rain.png'}/>RAIN</button>
+                    <button ><img src={'https://anwesharoses.github.io/Lighthouse/secondpage/meditat/png/forest.png'}></img>NATURE</button>
+                    <button ><img src={'https://anwesharoses.github.io/Lighthouse/secondpage/meditat/png/beach.png'}/>BEACH</button>
                 </div>
             </div>
 
