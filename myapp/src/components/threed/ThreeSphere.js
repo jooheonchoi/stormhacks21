@@ -3,6 +3,8 @@ import React, { Suspense } from 'react';
 import { OrbitControls, Stars } from '@react-three/drei';
 import { Physics, useBox, usePlane } from '@react-three/cannon';
 import { MeshDistortMaterial, Sphere } from "@react-three/drei";
+import CountDown from './CountDown';
+
 
 const Box = () => {
   const [ref] = useBox(() => ({ mass: 1, position: [0, 2, 0] }));
@@ -69,14 +71,13 @@ const ThreeSphere = () => {
         <Suspense fallback={null}>
           <AnimatedSphere />
         </Suspense>
+ 
       </Canvas>
-      <div style={{ backgroundColor: 'red' }}>
-      <Canvas>
-        <MyRotatingBox />
-        <ambientLight intensity={0.1} />
-        <directionalLight />
-      </Canvas>
+      <div>
+      <CountDown />
       </div>
+
+
     </div>
   )
 }
