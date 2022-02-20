@@ -1,11 +1,17 @@
 import React from "react";
 import './Meditation.css';
 import backAnimation from './video/rain.mp4'
+import rainSound from './music/rain.mp3'
+import natureSound from './music/nature.mp3'
+import beachSound from './music/beach.mp3'
 
 function Meditation(){
 
+    let rain = new Audio('/music/rain.mp3');
+
     const playRainSound = () => {
         console.log("in FUNCTION rain");
+        audio.play();
 
     }
     const playNatureSound = () => {
