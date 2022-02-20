@@ -19,6 +19,13 @@ import { onAuthStateChanged } from 'firebase/auth';
 const pages = ['Journal', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
+const linkStyle = {
+  margin: "1.5rem",
+  textDecoration: "none",
+  color: 'pink'
+};
+
+
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -56,7 +63,7 @@ const Navbar = () => {
             component="div"
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
-                    <Link to="/">Logo</Link>
+                    <Link to="/" style={linkStyle}>Logo</Link>
 
           </Typography>
 
@@ -92,7 +99,7 @@ const Navbar = () => {
               {pages.map((page) => (
                 <MenuItem key={page} onClick={(event)=> console.log(event)}>
                   <Typography textAlign="center">
-                  <Link to={`/${page}`}>{page}</Link>
+                  <Link to={`/${page}`}  style={linkStyle}>{page}</Link>
                   </Typography>
                 </MenuItem>
               ))}
@@ -104,7 +111,7 @@ const Navbar = () => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
           >
-                    <Link to="/">Logo</Link>
+                    <Link to="/" style={linkStyle}>Logo</Link>
 
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
@@ -114,7 +121,7 @@ const Navbar = () => {
                 onClick={(e)=>console.log(page)}
                 sx={{ my: 2, color: 'white', display: 'block', backgroundColor: '' }}
               >
-            <Link to={`/${page}`}>{page}</Link>
+            <Link  to={`/${page}`}  style={linkStyle}>{page}</Link>
               </Button>
             ))}
           </Box>
@@ -152,7 +159,7 @@ const Navbar = () => {
               ))}
             </Menu>
             </>
-              ) : null
+              ) : <Typography><Link to="/login" style={linkStyle}>Login/Register</Link></Typography>
             }
             
           </Box>

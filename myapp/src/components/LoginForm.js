@@ -63,6 +63,13 @@ import {auth} from './firebase-config';
 import { signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
 
 
+const linkStyle = {
+    margin: "1rem",
+    textDecoration: "none",
+    color: 'blue'
+  };
+
+
 const SectionStyle = styled(Card)(() => ({
   width: "100%",
   maxWidth: 464,
@@ -175,6 +182,7 @@ export default function Login() {
           <Box>
             <Typography variant="body2" align="center" sx={{ mt: 3 }}>
               Don’t have an account?&nbsp;
+              <Link to="/register" style={linkStyle}>Register</Link>
             </Typography>
           </Box>
         </ContentStyle>
