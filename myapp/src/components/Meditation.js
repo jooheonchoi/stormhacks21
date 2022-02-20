@@ -7,18 +7,33 @@ function Meditation(){
 
 
     return (
+        <>
+
             <div className="med">
 
                 <div className="vid-container" >
-                    <video autoPlay loop muted>
+                    <video 
+                    autoPlay 
+                    loop 
+                    muted
+                    style={{
+                        position:'absolute',
+                        width: "100%",
+                        left: "50%",
+                        top: "50%",
+                        height: "100%",
+                        objectFit: "cover",
+                        transform: "translate(-50%, -50%)",
+                        zIndex: "-1"
+                    }}>
                         <source src={backAnimation} type="video/mp4" />
                     </video>
                 </div>
 
                 <div className="time-select">
                     <div id="back-button">
-                        <img className="back-icon" src={'https://anwesharoses.github.io/Lighthouse/secondpage/meditat/back.png'}/>
-                            <a href="../"> back </a>
+                        <img className="back-icon" src={'https://anwesharoses.github.io/Lighthouse/secondpage/meditat/back.png'} />
+                        <a href="../"> back </a>
                     </div>
                     <button data-time="60">1 minute</button>
                     <button data-time="300">5 minutes</button>
@@ -36,19 +51,19 @@ function Meditation(){
                     <svg className="moving-outline" width="453" height="453" viewBox="0 0 453 453" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="226.5" cy="226.5" r="216.5" stroke="#018EBA" stroke-width="20" />
                     </svg>
-                    <img src={'https://anwesharoses.github.io/Lighthouse/secondpage/meditat/svg/replay.svg'}className="replay"></img>
+                    <img src={'https://anwesharoses.github.io/Lighthouse/secondpage/meditat/svg/replay.svg'} className="replay"></img>
                     <div className="time-display"><h3>00:00</h3></div>
 
                 </div>
                 <div className="sound-picker">
                     {/* <button data-sound="./songs/rain.mp3" data-video="./video/rain.mp4"><img src="./png/rain.png">RAIN</button> */}
 
-                    <button ><img src={'https://anwesharoses.github.io/Lighthouse/secondpage/meditat/png/rain.png'}/>RAIN</button>
+                    <button data-sound="./music/rain.mp3" data-video="./video/rain.mp4"><img src={'https://anwesharoses.github.io/Lighthouse/secondpage/meditat/png/rain.png'} />RAIN</button>
                     <button ><img src={'https://anwesharoses.github.io/Lighthouse/secondpage/meditat/png/forest.png'}></img>NATURE</button>
-                    <button ><img src={'https://anwesharoses.github.io/Lighthouse/secondpage/meditat/png/beach.png'}/>BEACH</button>
+                    <button ><img src={'https://anwesharoses.github.io/Lighthouse/secondpage/meditat/png/beach.png'} />BEACH</button>
                 </div>
             </div>
-
+        </>
     );
 }
 
