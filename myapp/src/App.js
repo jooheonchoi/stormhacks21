@@ -24,7 +24,7 @@ export default function App() {
         {/* <Route exact path="journal" element={<Journal />}/> */}
         <Route exact path="login" element={<Login />} />
         <Route exact path="register" element={<Register />} />
-        <Route exact path="audio" element={<Audio />} />
+        <Route exact path="journal" element={<Audio />} />
         <Route exact path="meditation" element={<Meditation />} />
         </Routes>
     </div>
