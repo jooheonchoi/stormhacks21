@@ -22,7 +22,7 @@ not merely the absence of disease or infirmity.”
                    width: '100%',
                    height: '100%',
                 }}>
-                    <img src={JournalImg} />
+                    <img src={JournalImg} width="100%" height="100%" alt="journal"/>
                 </Container>
                 <Container>
                     <h3>Journalling</h3>
