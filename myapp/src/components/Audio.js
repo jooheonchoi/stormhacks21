@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Audio.css";
-import Journal from "./Journal";
+// import Journal from "./Journal";
+import './Journal.css';
 
 const SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -11,11 +12,16 @@ mic.interimResults = true;
 mic.lang = "en-US";
 
 function Audio() {
+
+  const HEIGHT = 300;
+	const WIDTH = 300;
+
   const [isListening, setIsListening] = useState(false);
   const [note, setNote] = useState(null);
   const [savedNotes, setSavedNotes] = useState([]);
   let deleteClicked = false;
 
+	const [playing, setPlaying] = useState(false);
 
   useEffect(() => {
     handleListen();
@@ -94,6 +100,39 @@ function Audio() {
     }
   };
 
+
+  // journal
+  const startVideo = () => {
+		setIsListening(true);
+    setPlaying(true);
+		navigator.getUserMedia(
+			{
+				video: true,
+			},
+			(stream) => {
+				let video = document.getElementsByClassName('app__videoFeed')[0];
+				if (video) {
+					video.srcObject = stream;
+				}
+			},
+			(err) => console.error(err)
+		);
+	};
+
+
+
+	const stopVideo = () => {
+		setIsListening(false);
+    setPlaying(false);
+		let video = document.getElementsByClassName('app__videoFeed')[0];
+		video.srcObject.getTracks()[0].stop();
+	};
+
+
+
+
+
+
   return (
     <div className="general">
       <h1>Voice Notes</h1>
@@ -104,10 +143,45 @@ function Audio() {
           <button onClick={handleSaveNote} disabled={!note}>
             Save Note
           </button>
-          <button onClick={() => setIsListening((prevState) => !prevState)}>
-            Start/Stop
-          </button>
-          <Journal isListening={isListening}/>
+          {/* <button onClick={() => {
+            setIsListening((prevState) => !prevState);
+            // startVideo();
+          }}>
+            Start
+          </button> */}
+
+          {/* <button onClick={() => {
+            setIsListening((prevState) => !prevState);
+            // stopVideo();
+          }}>
+            Stop
+          </button> */}
+
+          {/* journal */}
+          <div className="app">
+            <h2>Welcome to your emotions video journal</h2>
+
+			<div className="app__container">
+				<video
+					height={HEIGHT}
+					width={WIDTH}
+					muted
+					autoPlay
+					className="app__videoFeed"
+				></video>
+			</div>
+      <div className="app__input">
+				{playing ? (
+					<button onClick={stopVideo}>Stop</button>
+				) : (
+					<button onClick={startVideo}>Start</button>
+				)}
+			</div>
+		</div>
+
+
+
+          {/* <Journal/> */}
           <p>{note}</p>
         </div>
         <div className="box">

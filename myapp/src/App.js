@@ -6,7 +6,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Audio from './components/Audio';
 
-import Journal from './components/Journal';
+// import Journal from './components/Journal';
 // import { Route, Link } from './components/Route';
 import * as ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
@@ -20,7 +20,7 @@ export default function App() {
       <Routes>
     
       <Route path="/" element={<Homepage />} />
-        <Route exact path="journal" element={<Journal />}/>
+        {/* <Route exact path="journal" element={<Journal />}/> */}
         <Route exact path="login" element={<Login />} />
         <Route exact path="register" element={<Register />} />
         <Route exact path="audio" element={<Audio />} />
