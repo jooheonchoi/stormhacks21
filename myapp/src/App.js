@@ -11,6 +11,7 @@ import Audio from './components/Audio';
 import * as ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import { Routes, Route, Link } from "react-router-dom";
+import Meditation from './components/Meditation';
 
 
 export default function App() {
@@ -24,6 +25,7 @@ export default function App() {
         <Route exact path="login" element={<Login />} />
         <Route exact path="register" element={<Register />} />
         <Route exact path="audio" element={<Audio />} />
+        <Route exact path="meditation" element={<Meditation />} />
         </Routes>
     </div>
   );

@@ -1,0 +1,126 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+*{
+    padding: 0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+.med{
+    height: 100vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.time-select, .sound-picker, .player-container{
+    height: 80%;
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.player-container{
+    height: 80%;
+    display: flex; 
+    position: relative;
+    place-content: center;
+}
+
+.player-container>svg{
+    position:absolute;
+    height: 50%;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    pointer-events: none;
+}
+.player-container>img{
+     justify-self: center;
+     align-self: center;
+}
+.player-container>button{
+    background-color: inherit;
+    border: none;
+}
+.replay{
+    
+}
+.time-display{
+   position:absolute;
+   top: 75%;
+   font-size: 40px;
+}
+.time-select{
+    background-color: lightblue;
+}
+
+.sound-picker{
+    background-color: lightsalmon;
+}
+.player-container{
+    background-color: aquamarine;
+}
+#back-button{
+height: 40px;
+width: 180px;
+border: 2px solid #fffcfc;
+padding: 0px;
+background-color: rgba(204, 248, 211, 0.3);
+display: flex;
+justify-content: flex-start;
+border-radius: 10px;
+color: white;
+}
+
+#back-button a{
+  margin: 7px;
+  text-decoration: none;
+  color: white;
+  font-weight: 700;  
+ 
+}
+.back-icon{
+    margin-left: 4px;
+    margin-top: 4px;
+    height:25px;
+    width:25px;
+}
+
+.vid-container{
+    /* display:none ; */
+    position: fixed;
+    top:0%;
+    left:0%;
+    width:100%;
+    height: 100%;
+    z-index: -2;
+}
+.time-select>button, .sound-picker>button{
+    width: 25%;
+    height:10%;
+    background-color:inherit;
+    color: azure ;
+    border: 2px solid white;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 17px;
+}
+.sound-picker>button{
+    height: 120px;
+    width:120px;
+    border-radius: 50%;
+}
+.time-display{
+    height: 100%;
+    
+}
+.time-select button:hover, .sound-picker button:hover{
+    background-color:rgba(252, 244, 244, 0.5);
+    transition: 0.6s;
+}
+
+circle{
+  background-color:black;
+}

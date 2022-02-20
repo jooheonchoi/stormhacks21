@@ -14,14 +14,14 @@ mic.lang = "en-US";
 function Audio() {
 
   const HEIGHT = 300;
-	const WIDTH = 300;
+  const WIDTH = 300;
 
   const [isListening, setIsListening] = useState(false);
   const [note, setNote] = useState(null);
   const [savedNotes, setSavedNotes] = useState([]);
   let deleteClicked = false;
 
-	const [playing, setPlaying] = useState(false);
+  const [playing, setPlaying] = useState(false);
 
   useEffect(() => {
     handleListen();
@@ -103,30 +103,30 @@ function Audio() {
 
   // journal
   const startVideo = () => {
-		setIsListening(true);
+    setIsListening(true);
     setPlaying(true);
-		navigator.getUserMedia(
-			{
-				video: true,
-			},
-			(stream) => {
-				let video = document.getElementsByClassName('app__videoFeed')[0];
-				if (video) {
-					video.srcObject = stream;
-				}
-			},
-			(err) => console.error(err)
-		);
-	};
+    navigator.getUserMedia(
+      {
+        video: true,
+      },
+      (stream) => {
+        let video = document.getElementsByClassName('app__videoFeed')[0];
+        if (video) {
+          video.srcObject = stream;
+        }
+      },
+      (err) => console.error(err)
+    );
+  };
 
 
 
-	const stopVideo = () => {
-		setIsListening(false);
+  const stopVideo = () => {
+    setIsListening(false);
     setPlaying(false);
-		let video = document.getElementsByClassName('app__videoFeed')[0];
-		video.srcObject.getTracks()[0].stop();
-	};
+    let video = document.getElementsByClassName('app__videoFeed')[0];
+    video.srcObject.getTracks()[0].stop();
+  };
 
 
 
@@ -159,25 +159,26 @@ function Audio() {
 
           {/* journal */}
           <div className="app">
-            <h2>Welcome to your emotions video journal</h2>
+            <h2 className="titleVideo"> Video Journal Log </h2>
+            <p className="subTitleVideo">A place of no judgement and where all emotion are accepted</p>
 
-			<div className="app__container">
-				<video
-					height={HEIGHT}
-					width={WIDTH}
-					muted
-					autoPlay
-					className="app__videoFeed"
-				></video>
-			</div>
-      <div className="app__input">
-				{playing ? (
-					<button onClick={stopVideo}>Stop</button>
-				) : (
-					<button onClick={startVideo}>Start</button>
-				)}
-			</div>
-		</div>
+            <div className="app__container">
+              <video
+                height={HEIGHT}
+                width={WIDTH}
+                muted
+                autoPlay
+                className="app__videoFeed"
+              ></video>
+            </div>
+            <div className="app__input">
+              {playing ? (
+                <button onClick={stopVideo}>Stop</button>
+              ) : (
+                <button onClick={startVideo}>Start</button>
+              )}
+            </div>
+          </div>
 
 
 

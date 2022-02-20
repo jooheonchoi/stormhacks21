@@ -28,6 +28,14 @@
   .App-link {
     color: #61dafb;
   }
+
+  .titleVideo{
+    margin-bottom: 0;
+  }
+
+  .subTitleVideo{
+    margin-top: 0;
+  }
   
   @keyframes App-logo-spin {
     from {
@@ -44,7 +52,7 @@
   }
   
   .general {
-    background-color: powderblue;
+    /* background-color: powderblue; */
     width: 100%;
     height: 100%;
   }
@@ -53,6 +61,6 @@
     padding: 0;
     width: 100vw;
     height: 100vh;
-    background-color: powderblue;
+    /* background-color: powderblue; */
   }
   
