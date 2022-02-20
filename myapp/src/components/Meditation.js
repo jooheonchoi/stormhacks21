@@ -4,7 +4,20 @@ import backAnimation from './video/rain.mp4'
 
 function Meditation(){
 
+    const playRainSound = () => {
+        console.log("in FUNCTION rain");
 
+    }
+    const playNatureSound = () => {
+        console.log("in FUNCTION Nature");
+        
+    }
+    const playBeachSound = () => {
+        console.log("in FUNCTION beach");
+        
+    }
+
+    
 
     return (
         <>
@@ -58,9 +71,9 @@ function Meditation(){
                 <div className="sound-picker">
                     {/* <button data-sound="./songs/rain.mp3" data-video="./video/rain.mp4"><img src="./png/rain.png">RAIN</button> */}
 
-                    <button data-sound="./music/rain.mp3" data-video="./video/rain.mp4"><img src={'https://anwesharoses.github.io/Lighthouse/secondpage/meditat/png/rain.png'} />RAIN</button>
-                    <button ><img src={'https://anwesharoses.github.io/Lighthouse/secondpage/meditat/png/forest.png'}></img>NATURE</button>
-                    <button ><img src={'https://anwesharoses.github.io/Lighthouse/secondpage/meditat/png/beach.png'} />BEACH</button>
+                    <button onClick={playRainSound} ><img src={'https://anwesharoses.github.io/Lighthouse/secondpage/meditat/png/rain.png'} />RAIN</button>
+                    {/* <button onClick={playSound(nature)} data-sound="./music/nature.mp3" data-video="./video/nature.mp4"><img src={'https://anwesharoses.github.io/Lighthouse/secondpage/meditat/png/forest.png'}></img>NATURE</button>
+                    <button onClick={playSound(beach)} data-sound="./music/beach.mp3" data-video="./video/beach.mp4"><img src={'https://anwesharoses.github.io/Lighthouse/secondpage/meditat/png/beach.png'} />BEACH</button> */}
                 </div>
             </div>
         </>
@@ -71,87 +84,87 @@ export default Meditation;
 
 
 
-{/* //JS  file */}
-{/* const song = document.querySelector(".song");
-const play = document.querySelector(".play");
-const replay = document.querySelector(".replay");
-const outline = document.querySelector(".moving-outline circle");
-const video = document.querySelector(".vid-container video");
-//Sounds
-const sounds = document.querySelectorAll(".sound-picker button");
-//Time Display
-const timeDisplay = document.querySelector(".time-display");
-const outlineLength = outline.getTotalLength();
-//Duration
+// {/* //JS  file */}
+// const song = document.querySelector(".song");
+// const play = document.querySelector(".play");
+// const replay = document.querySelector(".replay");
+// const outline = document.querySelector(".moving-outline circle");
+// const video = document.querySelector(".vid-container video");
+// //Sounds
+// const sounds = document.querySelectorAll(".sound-picker button");
+// //Time Display
+// const timeDisplay = document.querySelector(".time-display");
+// const outlineLength = outline.getTotalLength();
+// //Duration
 
-const timeSelect = document.querySelectorAll(".time-select button");
-let fakeDuration = 600;
+// const timeSelect = document.querySelectorAll(".time-select button");
+// let fakeDuration = 600;
 
-outline.style.strokeDashoffset = outlineLength;
-outline.style.strokeDasharray = outlineLength;
-timeDisplay.textContent = `${Math.floor(fakeDuration / 60)}:${Math.floor(
-  fakeDuration % 60
-)}`;
+// outline.style.strokeDashoffset = outlineLength;
+// outline.style.strokeDasharray = outlineLength;
+// timeDisplay.textContent = `${Math.floor(fakeDuration / 60)}:${Math.floor(
+//   fakeDuration % 60
+// )}`;
 
-sounds.forEach(sound => {
-  sound.addEventListener("click", function() {
-    song.src = this.getAttribute("data-sound");
-    video.src = this.getAttribute("data-video");
-    checkPlaying(song);
-  });
-});
+// sounds.forEach(sound => {
+//   sound.addEventListener("click", function() {
+//     song.src = this.getAttribute("data-sound");
+//     video.src = this.getAttribute("data-video");
+//     checkPlaying(song);
+//   });
+// });
 
-play.addEventListener("click", function() {
-  checkPlaying(song);
-});
+// play.addEventListener("click", function() {
+//   checkPlaying(song);
+// });
 
-replay.addEventListener("click", function() {
-    restartSong(song);
+// replay.addEventListener("click", function() {
+//     restartSong(song);
     
-  });
+//   });
 
 
-const restartSong = song =>{
-    let currentTime = song.currentTime;
-    song.currentTime = 0;
-    console.log("ciao")
+// const restartSong = song =>{
+//     let currentTime = song.currentTime;
+//     song.currentTime = 0;
+//     console.log("ciao")
 
-}
+// }
 
-timeSelect.forEach(option => {
-  option.addEventListener("click", function() {
-    fakeDuration = this.getAttribute("data-time");
-    timeDisplay.textContent = `${Math.floor(fakeDuration / 60)}:${Math.floor(
-      fakeDuration % 60
-    )}`;
-  });
-});
+// timeSelect.forEach(option => {
+//   option.addEventListener("click", function() {
+//     fakeDuration = this.getAttribute("data-time");
+//     timeDisplay.textContent = `${Math.floor(fakeDuration / 60)}:${Math.floor(
+//       fakeDuration % 60
+//     )}`;
+//   });
+// });
 
-const checkPlaying = song => {
-  if (song.paused) {
-    song.play();
-    video.play();
-    play.src = "./svg/pause.svg";
-  } else {
-    song.pause();
-    video.pause();
-    play.src = "./svg/play.svg";
-  }
-};
+// const checkPlaying = song => {
+//   if (song.paused) {
+//     song.play();
+//     video.play();
+//     play.src = "./svg/pause.svg";
+//   } else {
+//     song.pause();
+//     video.pause();
+//     play.src = "./svg/play.svg";
+//   }
+// };
 
-song.ontimeupdate = function() {
-  let currentTime = song.currentTime;
-  let elapsed = fakeDuration - currentTime;
-  let seconds = Math.floor(elapsed % 60);
-  let minutes = Math.floor(elapsed / 60);
-  timeDisplay.textContent = `${minutes}:${seconds}`;
-  let progress = outlineLength - (currentTime / fakeDuration) * outlineLength;
-  outline.style.strokeDashoffset = progress;
+// song.ontimeupdate = function() {
+//   let currentTime = song.currentTime;
+//   let elapsed = fakeDuration - currentTime;
+//   let seconds = Math.floor(elapsed % 60);
+//   let minutes = Math.floor(elapsed / 60);
+//   timeDisplay.textContent = `${minutes}:${seconds}`;
+//   let progress = outlineLength - (currentTime / fakeDuration) * outlineLength;
+//   outline.style.strokeDashoffset = progress;
 
-  if (currentTime >= fakeDuration) {
-    song.pause();
-    song.currentTime = 0;
-    play.src = "./svg/play.svg";
-    video.pause();
-  }
-}; */}
+//   if (currentTime >= fakeDuration) {
+//     song.pause();
+//     song.currentTime = 0;
+//     play.src = "./svg/play.svg";
+//     video.pause();
+//   }
+// };
