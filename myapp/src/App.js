@@ -5,7 +5,7 @@ import Navbar from './components/Navbar';
 import Login from './components/Login';
 import Register from './components/Register';
 import Audio from './components/Audio';
-
+import ThreeSphere from './components/threed/ThreeSphere';
 // import Journal from './components/Journal';
 // import { Route, Link } from './components/Route';
 import * as ReactDOM from "react-dom";
@@ -26,6 +26,7 @@ export default function App() {
         <Route exact path="register" element={<Register />} />
         <Route exact path="journal" element={<Audio />} />
         <Route exact path="meditation" element={<Meditation />} />
+        <Route exact path="threed" element={<ThreeSphere />} />
         </Routes>
     </div>
   );
